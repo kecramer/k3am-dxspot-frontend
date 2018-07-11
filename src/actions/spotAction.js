@@ -19,7 +19,6 @@ export const setActiveSpot = (spot) => dispatch => {
   fetch('http://sleepy-lowlands-69004.herokuapp.com/dxcc/' + spot.spotter)
     .then((resp) => resp.json())
     .then((resp) => {
-      console.log(resp.entity)
       if(resp.entity && resp.entity[0] === "UNITED STATES OF AMERICA") {
         dispatch(getUSALocation(spot.spotter, true))
       }
@@ -43,7 +42,6 @@ export const setActiveSpot = (spot) => dispatch => {
 }
 
 export const getUSALocation = (call, isSpotter) => dispatch => {
-  console.log('getting usa location for ' + call)
   fetch(`http://sleepy-lowlands-69004.herokuapp.com/dxcc/${call}/usa`)
     .then((resp) => resp.json())
     .then((resp) => {
