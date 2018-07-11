@@ -4,7 +4,7 @@ import Spots from '../components/Spots'
 import { getSpots } from '../actions/spotAction'
 
 class SpotsContainer extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getSpots();
   }
 
@@ -20,7 +20,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
- getSpots: () => dispatch(getSpots())
+  getSpots: () => dispatch(getSpots())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SpotsContainer)

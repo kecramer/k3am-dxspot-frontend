@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Grid style={{marginTop: '2em'}}>
+        <Grid style={{marginTop: '2em', padding: '1em'}}>
           <Grid.Column width={11}>
             <SpotsContainer />
           </Grid.Column>

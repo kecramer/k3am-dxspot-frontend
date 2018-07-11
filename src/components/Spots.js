@@ -8,15 +8,19 @@ export default class Spots extends Component {
       <Spot key={spot._id} spot={spot} />
     ))
     return(
-      <Table celled>
-        <Table.Row>
-          <Table.HeaderCell>DE</Table.HeaderCell>
-          <Table.HeaderCell>DX</Table.HeaderCell>
-          <Table.HeaderCell>Frequency</Table.HeaderCell>
-          <Table.HeaderCell>Message</Table.HeaderCell>
-          <Table.HeaderCell>Time</Table.HeaderCell>
-        </Table.Row>
-        {spotsElements}
+      <Table celled striped selectable>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>DE</Table.HeaderCell>
+            <Table.HeaderCell>DX</Table.HeaderCell>
+            <Table.HeaderCell>Frequency</Table.HeaderCell>
+            <Table.HeaderCell>Message</Table.HeaderCell>
+            <Table.HeaderCell>Time</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {spotsElements}
+        </Table.Body>
       </Table>
     )
   }
