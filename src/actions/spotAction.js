@@ -6,8 +6,15 @@ export const getSpots = () => dispatch => {
         type: 'ADD_SPOTS',
         payload: resp
       })
-      dispatch(setActiveSpot(resp[0])) // Does not work as expected
+      dispatch(setActiveSpot(resp[0]))
     })
+}
+
+export const addSpot = (spot) => dispatch => {
+  dispatch({
+    type: 'ADD_SPOT',
+    payload: spot
+  })
 }
 
 export const setActiveSpot = (spot) => dispatch => {

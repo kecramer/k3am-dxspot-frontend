@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Map, Polyline, GoogleApiWrapper } from 'google-maps-react';
+import { GOOGLE_MAPS_API_KEY } from '../config.js'
 
 export class MapContainer extends Component {
   render() {
@@ -44,5 +45,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg')
+  apiKey: (GOOGLE_MAPS_API_KEY)
 })(connect(mapStateToProps, mapDispatchToProps)(MapContainer))

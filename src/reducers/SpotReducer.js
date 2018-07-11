@@ -40,7 +40,15 @@ export default (state = {}, action) => {
     case 'ADD_USA_LOC_SPOTTED':
       return {
         ...state,
-        spotterDXCC: {...state.spottedDXCC, lat: action.payload.latitude, long: action.payload.longitude}
+        spottedDXCC: {...state.spottedDXCC, lat: action.payload.latitude, long: action.payload.longitude}
+      }
+
+    case 'ADD_SPOT':
+      let newSpotsArr = state.spots
+      newSpotsArr.push(action.payload)
+      return {
+        ...state,
+        spots: newSpotsArr
       }
 
     default:
