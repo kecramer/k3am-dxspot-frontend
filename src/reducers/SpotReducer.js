@@ -29,7 +29,6 @@ export default (state = {}, action) => {
       return {
         ...state,
         activeSpot: action.payload,
-        spotDXCC: null
       }
 
     case 'ADD_USA_LOC_SPOTTER':
