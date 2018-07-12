@@ -29,7 +29,7 @@ export default class Header extends Component {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown.Item>
-              <Dropdown.Item>About K3AM</Dropdown.Item>
+              <Dropdown.Item><a style={{color: 'inherit'}} href="//www.linkedin.com/in/kevin-cramer/" target="_blank" rel="noopener noreferrer">About K3AM</a></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Container>
