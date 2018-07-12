@@ -44,8 +44,7 @@ export default (state = {}, action) => {
       }
 
     case 'ADD_SPOT':
-      let newSpotsArr = state.spots
-      newSpotsArr.push(action.payload)
+      let newSpotsArr = [action.payload, ...state.spots]
       return {
         ...state,
         spots: newSpotsArr

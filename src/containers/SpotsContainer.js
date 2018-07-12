@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Spots from '../components/Spots'
-import { getSpots, addSpot } from '../actions/spotAction'
-import io from 'socket.io-client'
+import { getSpots } from '../actions/spotAction'
+import { listenForSpots } from '../actions/socketAction'
 
 class SpotsContainer extends Component {
-  constructor() {
-    super()
-
-    this.socket = io('http://sleepy-lowlands-69004.herokuapp.com/')
-    this.socket.on('spot', (spot) => {
-      this.props.addSpot(spot)
-    })
-  }
-
   componentDidMount() {
-    this.props.getSpots();
+    this.props.getSpots()
+    this.props.listenForSpots()
   }
 
   componentWillReceiveProps() {
@@ -24,7 +16,7 @@ class SpotsContainer extends Component {
 
   render() {
     return(
-      <Spots spots={this.props.spots}/>
+      <Spots />
     )
   }
 }
@@ -35,7 +27,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   getSpots: () => dispatch(getSpots()),
-  addSpot: (spot) => dispatch(addSpot(spot))
+  listenForSpots: () => dispatch(listenForSpots())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SpotsContainer)
