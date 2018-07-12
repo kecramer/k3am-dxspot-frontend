@@ -19,9 +19,6 @@ export const setActiveSpot = (spot) => dispatch => {
   fetch('http://sleepy-lowlands-69004.herokuapp.com/dxcc/' + spot.spotter)
     .then((resp) => resp.json())
     .then((resp) => {
-      if(resp.entity && resp.entity[0] === "UNITED STATES OF AMERICA") {
-        dispatch(getUSALocation(spot.spotter, true))
-      }
       dispatch({
         type: 'ADD_SPOTTER_DXCC',
         payload: resp
@@ -31,9 +28,6 @@ export const setActiveSpot = (spot) => dispatch => {
   fetch('http://sleepy-lowlands-69004.herokuapp.com/dxcc/' + spot.spotted)
     .then((resp) => resp.json())
     .then((resp) => {
-      if(resp.entity && resp.entity[0] === "UNITED STATES OF AMERICA") {
-        dispatch(getUSALocation(spot.spotted, false))
-      }
       dispatch({
         type: 'ADD_SPOTTED_DXCC',
         payload: resp
