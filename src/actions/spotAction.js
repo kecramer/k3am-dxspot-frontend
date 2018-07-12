@@ -1,5 +1,5 @@
 export const getSpots = () => dispatch => {
-  fetch('http://sleepy-lowlands-69004.herokuapp.com/spot')
+  fetch('//sleepy-lowlands-69004.herokuapp.com/spot')
     .then((resp) => resp.json())
     .then((resp) => {
       dispatch({
@@ -16,7 +16,7 @@ export const setActiveSpot = (spot) => dispatch => {
     payload: spot
   })
 
-  fetch('http://sleepy-lowlands-69004.herokuapp.com/dxcc/' + spot.spotter)
+  fetch('//sleepy-lowlands-69004.herokuapp.com/dxcc/' + spot.spotter)
     .then((resp) => resp.json())
     .then((resp) => {
       dispatch({
@@ -25,7 +25,7 @@ export const setActiveSpot = (spot) => dispatch => {
       })
     })
 
-  fetch('http://sleepy-lowlands-69004.herokuapp.com/dxcc/' + spot.spotted)
+  fetch('//sleepy-lowlands-69004.herokuapp.com/dxcc/' + spot.spotted)
     .then((resp) => resp.json())
     .then((resp) => {
       dispatch({
@@ -36,7 +36,7 @@ export const setActiveSpot = (spot) => dispatch => {
 }
 
 export const getUSALocation = (call, isSpotter) => dispatch => {
-  fetch(`http://sleepy-lowlands-69004.herokuapp.com/dxcc/${call}/usa`)
+  fetch(`//sleepy-lowlands-69004.herokuapp.com/dxcc/${call}/usa`)
     .then((resp) => resp.json())
     .then((resp) => {
       if(isSpotter) {
@@ -57,7 +57,7 @@ export const getUSALocation = (call, isSpotter) => dispatch => {
 }
 
 export const getSpotDXCC = (call) => dispatch => {
-  fetch('http://sleepy-lowlands-69004.herokuapp.com/dxcc/' + call)
+  fetch('//sleepy-lowlands-69004.herokuapp.com/dxcc/' + call)
     .then((resp) => resp.json())
     .then((resp) => {
       dispatch({
