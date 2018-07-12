@@ -10,10 +10,6 @@ class SpotsContainer extends Component {
     this.props.listenForSpots()
   }
 
-  componentWillReceiveProps() {
-    console.log('receiving props')
-  }
-
   render() {
     return(
       <Spots />
