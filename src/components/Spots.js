@@ -6,9 +6,10 @@ import Spot from './Spot'
 
 class Spots extends Component {
   render(){
-    let spotsElements = this.props.spots && this.props.spots.map(spot => (
+    let spotsElements = this.props.spots && this.props.spots.slice(0,20).map(spot => (
       <Spot key={spot._id} spot={spot} />
     ))
+    
     return(
       <Table celled striped selectable>
         <Table.Header onClick={this.props.getSpots}>
