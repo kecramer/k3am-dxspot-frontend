@@ -33,11 +33,11 @@ class Spots extends Component {
   componentDidUpdate() {
     let lastPage = Math.floor(this.props.spots.length / 20)
 
-    if(this.props.spots.length % 20 == 0) {
+    if(this.props.spots.length % 20 === 0) {
       lastPage--
     }
 
-    if(this.state.lastPage != lastPage) {
+    if(this.state.lastPage !== lastPage) {
       this.setState({
         lastPage
       })
