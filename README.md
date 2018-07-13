@@ -3,6 +3,8 @@ DXSpot by K3AM
 
 A modern site, showcasing DX QSOs between amateur radio stations. Using a connection to a DXCluster for real-time display of incoming spots.
 
+Amateur radio has a huge lack of modern open source projects supporting it, and I'm hoping this can be one of the first large projects that starts changing that.
+
 This site is currently being hosted on Heroku at [dxspot.herokuapp.com](https://dxspot.herokuapp.com/) for the front end (Please be patient for the first load to happen!), and  [sleepy-lowlands-69004](https://sleepy-lowlands-69004.herokuapp.com/) for the back end, which also provides an open API and connectable socket for others wishing to use this data.
 
 ## Technology
@@ -27,8 +29,29 @@ Specific libraries/technologies that have been helpful on the back end include:
 
 - DXCCjs
 - DXCluster
--
+- Express - Static endpoint listening and controlling
+- Mongoose - Connection to my mongo database where spots are being stored
+- Socket.io - the other end of my socket logic
+
+## Installation
+
+In preparing this for a presentation for my General Assembly project, many URLs are still hard coded, but will be moved to more generic forms in the following weeks.
+
+Both front end and back end repositories are set up such that they should be able to be deployed to Heroku or whatever other hosting platform you have with ease. The back end requires Mongo is running, I used the mLab addon for this.
+
+For Google Maps to work, you will have to provide your own key to the front end's `src/config.js` file.
+
+## Future features
+
+This project has gained some interest in the amateur radio community and I intend to continue development. The following features/changes are on my short list:
+
+- Code cleanup
+- Filters
+- Search
+- Additional QSO information (from other third party API sources)
 
 ## Thanks
 
-ghardin137 from [Reactiflux on Discord](https://discordapp.com/invite/0ZcbPKXt5bZiQhB5)
+- Justin, Tine, and the rest of the SF WDI 45 class for always being supportive and interested.
+- ghardin137 from [Reactiflux on Discord](https://discordapp.com/invite/0ZcbPKXt5bZiQhB5) who quickly identified why my container wasn't updating (state mutation problem)
+- `#redditNet` on IRC and /r/amateurradio for providing feedback on my libraries and final project
