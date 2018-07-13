@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Grid style={{marginTop: '2em', padding: '1em'}}>
-          <Grid.Column width={11}>
+          <Grid.Column width={11} style={{paddingRight: 0}}>
             <SpotsContainer />
           </Grid.Column>
           <Grid.Column width={5}>
