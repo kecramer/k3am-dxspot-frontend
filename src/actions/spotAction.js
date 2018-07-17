@@ -1,12 +1,31 @@
 export const getSpots = () => dispatch => {
+  dispatch({
+    type: 'SPOTS_LOADING',
+    payload: true
+  })
+
   fetch('//sleepy-lowlands-69004.herokuapp.com/spot')
     .then((resp) => resp.json())
     .then((resp) => {
+      dispatch({
+        type: 'SPOTS_LOADING',
+        payload: false
+      })
       dispatch({
         type: 'ADD_SPOTS',
         payload: resp
       })
       dispatch(setActiveSpot(resp[0]))
+    })
+    .catch((err) => {
+      dispatch({
+        type: 'SPOTS_LOADING',
+        payload: false
+      })
+      dispatch({
+        type: 'SPOTS_ERR',
+        payload: true
+      })
     })
 }
 

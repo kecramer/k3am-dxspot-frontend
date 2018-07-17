@@ -50,6 +50,12 @@ export default (state = {}, action) => {
         spots: newSpotsArr
       }
 
+    case 'SPOTS_LOADING':
+      return {
+        ...state,
+        loading: action.payload
+      }
+
     default:
       return state
   }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Table, Grid, Checkbox, Button, Icon } from 'semantic-ui-react'
 import { getSpots } from '../actions/spotAction'
 import { toggleLiveUpdateState } from '../actions/socketAction'
+import { PropagateLoader } from 'react-spinners'
 import Spot from './Spot'
 
 class Spots extends Component {
@@ -31,9 +32,10 @@ class Spots extends Component {
   }
 
   componentDidUpdate() {
-    let lastPage = Math.floor(this.props.spots.length / 20)
+    let numSpots = (this.props.spots && this.props.spots.length) || 0
+    let lastPage = Math.floor(numSpots / 20)
 
-    if(this.props.spots.length % 20 === 0) {
+    if(numSpots % 20 === 0) {
       lastPage--
     }
 
@@ -108,6 +110,7 @@ class Spots extends Component {
             {spotsElements}
           </Table.Body>
         </Table>
+        {this.props.loading && <Grid><div style={{margin: '0 auto', padding: '1em 0 1em'}}><PropagateLoader /></div></Grid>}
         <Grid>
           <Grid.Column width={4}>
             <Checkbox onChange={this.toggleLiveUpdate} checked={this.state.liveUpdateEnabled} toggle label="Live Update"/>
@@ -123,7 +126,8 @@ class Spots extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  spots: state.spotReducer.spots
+  spots: state.spotReducer.spots,
+  loading: state.spotReducer.loading
 })
 
 const mapDispatchToProps = dispatch => ({
