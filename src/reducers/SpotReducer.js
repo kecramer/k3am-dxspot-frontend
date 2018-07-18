@@ -56,6 +56,12 @@ export default (state = {}, action) => {
         loading: action.payload
       }
 
+    case 'SPOTS_ERR':
+      return {
+        ...state,
+        error: action.payload
+      }
+
     default:
       return state
   }

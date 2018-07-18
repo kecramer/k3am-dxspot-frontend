@@ -111,6 +111,7 @@ class Spots extends Component {
           </Table.Body>
         </Table>
         {this.props.loading && <Grid><div style={{margin: '0 auto', padding: '1em 0 1em'}}><PropagateLoader /></div></Grid>}
+        {this.props.error && <Table><Table.Row negative textAlign="center">An error occured. {this.props.error.message}</Table.Row></Table>}
         <Grid>
           <Grid.Column width={4}>
             <Checkbox onChange={this.toggleLiveUpdate} checked={this.state.liveUpdateEnabled} toggle label="Live Update"/>
@@ -127,7 +128,8 @@ class Spots extends Component {
 
 const mapStateToProps = (state) => ({
   spots: state.spotReducer.spots,
-  loading: state.spotReducer.loading
+  loading: state.spotReducer.loading,
+  error: state.spotReducer.error
 })
 
 const mapDispatchToProps = dispatch => ({

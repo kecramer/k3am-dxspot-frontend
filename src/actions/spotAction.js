@@ -24,7 +24,7 @@ export const getSpots = () => dispatch => {
       })
       dispatch({
         type: 'SPOTS_ERR',
-        payload: true
+        payload: err
       })
     })
 }
